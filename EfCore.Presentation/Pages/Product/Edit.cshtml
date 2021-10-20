@@ -1,0 +1,41 @@
+﻿@page
+@using Microsoft.EntityFrameworkCore
+@model EfCore.Presentation.Pages.Product.EditModel
+@{
+}
+<form method="post">
+    <div class="form-group">
+
+        <div class="col-6 form-group">
+            <label class="col-6"> Product Name </label>
+            <input class="col-6" name="name" id="name" type="text" asp-for="@Model.CurrentProduct.ProductName" />
+        </div>
+        <div class="col-6 form-group">
+            <label class="col-6"> Product Description </label>
+            <input class="col-6" name="description" type="text" asp-for="@Model.CurrentProduct.ProductDescription" />
+        </div>
+        <div class="col-6 form-group">
+            <label class="col-6"> Unit Price </label>
+            <input class="col-6" name="Price" id="price" type="text" asp-for="@Model.CurrentProduct.UnitPrice" />
+        </div>
+        <div class="col-6 form-group">
+            <label class="col-6"> Category Name </label>
+            <select class="custom-select"
+                    asp-for="@Model.SelectedCategory"
+                    asp-items="@Model.CategoryList"
+                    id="category"
+                    name="category"
+                    >
+                <option
+
+                    selected="selected">
+                    Change Category
+                </option>
+            </select>
+        </div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-success"> Save </button>
+        </div>
+    </div>
+
+</form>

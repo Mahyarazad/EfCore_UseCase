@@ -1,0 +1,17 @@
+﻿@page
+@model EfCore.Presentation.Pages.Category.EditModel
+@{
+}
+<form method="post">
+    <div class="row">
+
+        <div class="col-6 form-group">
+            <lablel> Category Name </lablel>
+            <input name="name" id="name" type="text" asp-for="@Model.CurrentCategory.CategoryName"/>
+        </div>
+        <div class="col-6">
+            <button type="submit" class="btn btn-success"> Save</button>
+        </div>
+    </div>
+
+</form>

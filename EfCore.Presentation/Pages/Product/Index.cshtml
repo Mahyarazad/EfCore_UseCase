@@ -1,0 +1,61 @@
+﻿@page
+@model EfCore.Presentation.Pages.Product.ProductIndex
+
+@{
+}
+
+<div class="text-center">
+    <h1> New Product</h1>
+    <a class="btn btn-light" asp-area="" asp-page="/Product/Create"> New Product</a>
+
+    <div class="col-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <td> # </td>
+                <td> Name </td>
+                <td> Category </td>
+                <td> Description </td>
+                <td> Creation Date</td>
+                <td> Unit Price</td>
+                <td> Edit </td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <th id="id">@item.ProductId</th>
+                    <th>@item.ProductName</th>
+                    <th>@item.CategoryName</th>
+                    <th>@item.ProductDescription</th>
+                    <th>@item.CreationTime</th>
+                    <th>@item.UnitPrice</th>
+                    <th >
+                        <div class='card-group'>
+                            <a class="btn btn-info" asp-page="./Edit" asp-route-id=@item.ProductId> Content</a>
+                            <form method="post">
+                                @if (item.IsDeleted)
+                                {
+                                    <button style="margin-left: 4px" class="btn btn-danger" type="submit" asp-page-handler="restore"
+                                            asp-route-id="@item.ProductId">
+                                        Restore
+                                    </button>
+                                }
+                                else
+                                {
+                                    <button style="margin-left: 4px" class="btn btn-dark" type="submit" asp-page-handler="delete"
+                                            asp-route-id="@item.ProductId">
+                                        Delete
+                                    </button>
+                                }
+                            </form>
+
+                        </div>
+                    </th>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

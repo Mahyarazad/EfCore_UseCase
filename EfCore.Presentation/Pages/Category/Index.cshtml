@@ -1,0 +1,35 @@
+﻿@page
+@model EfCore.Presentation.Pages.Category.CategoryIndex
+
+@{
+}
+<div class="text-center">
+    <h1> New Category</h1>
+    <a class="btn btn-dark" asp-area="" asp-page="/Category/Create"> New Category </a>
+
+    <div class="col-12">
+        <table class="table table-bordered table-striped ">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td> Title</td>
+                    <td> Creation Date</td>
+                    <td> Edit </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Categories)
+                {
+                    <tr>
+                        <th>@item.CategoryId</th>
+                        <th>@item.CategoryName</th>
+                        <th>@item.CreationTime</th>
+                        <th>
+                            <a asp-page="./Edit" asp-route-id=@item.CategoryId> Content</a>
+                        </th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
